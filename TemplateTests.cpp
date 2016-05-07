@@ -294,11 +294,6 @@ void test_iterator_usage(ErrorContext &ec, unsigned int numRuns) {
             for (unsigned u = 0; u < SIZE - 1; u++) last++;
             while (it != last) {
                 pass = pass && *(it++) == 3;
-                // int u = 1;
-                // std::cout << "u = " << u << std::endl;
-                // std::cout << "mockarray[u] = " << mockarray[u] << std::endl;
-                // std::cout << "*it = " << *it << std::endl;
-                // u++;
             }
 
             ec.result(pass);

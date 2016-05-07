@@ -45,8 +45,9 @@ namespace CS2312 {
             }
             self_type operator++(int junk)
             {
+                self_type previous(__ptr);
                 __ptr++;
-                return *this;
+                return previous;
             }
             reference operator*()
             {
@@ -187,11 +188,8 @@ namespace CS2312 {
         iterator end()
         {
             iterator it(__data);
-            for (int i = 0; i < __size; ++i)
-            {
-                ++it;
-            }
-            return it;
+            it = &__data[__size - 1];
+            return it; 
         }
 
         const_iterator begin() const
@@ -203,7 +201,7 @@ namespace CS2312 {
         const_iterator end() const
         {
             const_iterator it(__data);
-            it = &__data[__size];
+            it = &__data[__size - 1];
             return it;
         }
 
