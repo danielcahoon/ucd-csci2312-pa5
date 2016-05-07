@@ -270,7 +270,7 @@ void test_iterator_usage(ErrorContext &ec, unsigned int numRuns) {
         ec.DESC("prefix vs postfix");
 
         {
-            const size_t SIZE = 100;
+            const size_t SIZE = 10;
             fixed_array<unsigned> mockarray(SIZE);
             for (auto &mockelem: mockarray) mockelem = 5;
 
@@ -284,6 +284,7 @@ void test_iterator_usage(ErrorContext &ec, unsigned int numRuns) {
 
             pass = mockarray[0] == 5;
 
+
             // test postfix
             mockarray[0] = 3;
             mockarray[SIZE - 1] = 7;
@@ -293,6 +294,11 @@ void test_iterator_usage(ErrorContext &ec, unsigned int numRuns) {
             for (unsigned u = 0; u < SIZE - 1; u++) last++;
             while (it != last) {
                 pass = pass && *(it++) == 3;
+                // int u = 1;
+                // std::cout << "u = " << u << std::endl;
+                // std::cout << "mockarray[u] = " << mockarray[u] << std::endl;
+                // std::cout << "*it = " << *it << std::endl;
+                // u++;
             }
 
             ec.result(pass);
